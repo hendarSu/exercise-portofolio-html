@@ -5,6 +5,7 @@ const portfolioData = [
     // Tambahkan lebih banyak objek proyek sesuai kebutuhan
 ];
 
+// nge select element value base on id.
 const portfolioContainer = document.getElementById("portfolioContainer");
 
 portfolioData.forEach(project => {
@@ -18,13 +19,31 @@ portfolioData.forEach(project => {
 });
 
 // Section Form Search
-const form = document.querySelector('form');
+// const form = document.querySelector('form');
+// form.addEventListener('submit', function (e) {
+//     e.preventDefault();
+
+//     const searchTerm = form.search.value.toLowerCase();
+
+//     items.forEach(item => {
+//         const projectTitle = item.querySelector('h2').textContent.toLowerCase();
+//         const projectDescription = item.querySelector('p').textContent.toLowerCase();
+
+//         if (projectTitle.includes(searchTerm) || projectDescription.includes(searchTerm)) {
+//             item.style.display = 'block';
+//         } else {
+//             item.style.display = 'none';
+//         }
+//     });
+// });
+
 const items = document.querySelectorAll('.item');
+ 
+function searchPortofolio() {
+    var selectElement = document.getElementById("search");
+    var searchTerm = selectElement.value;
 
-form.addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    const searchTerm = form.search.value.toLowerCase();
+    console.log(searchTerm);
 
     items.forEach(item => {
         const projectTitle = item.querySelector('h2').textContent.toLowerCase();
@@ -36,4 +55,4 @@ form.addEventListener('submit', function (e) {
             item.style.display = 'none';
         }
     });
-});
+}
