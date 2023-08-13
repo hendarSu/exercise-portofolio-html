@@ -18,32 +18,10 @@ portfolioData.forEach(project => {
     portfolioContainer.appendChild(projectItem);
 });
 
-// Section Form Search
-// const form = document.querySelector('form');
-// form.addEventListener('submit', function (e) {
-//     e.preventDefault();
-
-//     const searchTerm = form.search.value.toLowerCase();
-
-//     items.forEach(item => {
-//         const projectTitle = item.querySelector('h2').textContent.toLowerCase();
-//         const projectDescription = item.querySelector('p').textContent.toLowerCase();
-
-//         if (projectTitle.includes(searchTerm) || projectDescription.includes(searchTerm)) {
-//             item.style.display = 'block';
-//         } else {
-//             item.style.display = 'none';
-//         }
-//     });
-// });
-
-const items = document.querySelectorAll('.item');
- 
-function searchPortofolio() {
+function search() {
+    const items = document.querySelectorAll('.item'); 
     var selectElement = document.getElementById("search");
     var searchTerm = selectElement.value;
-
-    console.log(searchTerm);
 
     items.forEach(item => {
         const projectTitle = item.querySelector('h2').textContent.toLowerCase();

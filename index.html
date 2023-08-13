@@ -6,11 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portofolio Saya</title>
     <link rel="stylesheet" href="./assets/css/styles.css">
-
     <style>
-    .search-form {
-        background-color: #161fc2 !important;
-    }
+        .search-form {
+            background-color: #d60808;
+        }
     </style>
 </head>
 <body>
@@ -33,13 +32,23 @@
     </section>
 
     <!-- Section portofolio -->
-    <section class="search-form background">
+    <section class="search-form background" style="background-color: #e5f103 !important;">
         <h2>Cari Proyek</h2>
-        <input id="search" type="text" name="search" onkeyup="searchPortofolio()" placeholder="Masukkan kata kunci">
+        <input id="search" type="text" name="search" onkeyup="search()" placeholder="Masukkan kata kunci">
     </section>
     <div class="container" id="portfolioContainer">
     </div>
     <!-- End Section portofolio -->
+
+    <div id="chat-container">
+        <div id="chat-log"></div>
+        <div id="floating-chat">
+            <button id="btn-chat">Chat</button>
+        </div>
+    </div>
 </body>
 <script src="./assets/js/index.js"></script>
+<script>
+    console.log("hello world!");
+</script>
 </html>
