@@ -10,6 +10,22 @@ class Person {
         this.gender = gender;
     }
 
+    setName(name) {
+        this.name = name;
+        return this;
+    }
+
+    setGender(gender) {
+        const genders = ["L", "P"];
+        if (genders.includes(gender)) {
+            this.gender = gender;
+        } else {
+            console.error("Maaf gender yg di input hanya L atau P");
+        }
+
+        return this;
+    }
+
     setTitle() {
         // 2. tambahkan argument untuk set title, jika gender L = "Tuan " apabila P = "Nyonya", maka nilai 
             // name nya menjadi contoh, 
@@ -19,9 +35,7 @@ class Person {
 
     static find(name) {
         // 6. tambahkan argument untuk pungsi pencarian dari array persons berdasarkan nama.
-        return persons.find((item) => {
-            return item.name = name;
-        })
+        return persons.find(item => item.name = name)
     } 
 }
 
@@ -30,15 +44,33 @@ class Person {
     // panggil funsi setTittle dari object person 
     const person1 = new Person("Hendar", "L");
     person1.setTitle();
-    
+
+    //|key|value|
+    //|name|Hendar|
+    //|gender|L|
+
+    console.log(person1.name);
+    console.log(person1["name"]);
+
     // 1 person perempuan
     // panggil funsi setTittle dari object person 
     const person2 = new Person("Nurul", "P");
     person2.setTitle();
 
+    const person3 = new Person();
+    person3.name = "Agung";
+    person3.gender = "L";
+    person3.setTitle();
+
+    // Builder Pattern
+    const person4 = new Person();
+    person4.setName("Fajar").setGender("L").setTitle();
+
 // 4. setiap object person nya ditambahkan ke array object persons
     persons.push(person1);
     persons.push(person2);
+    persons.push(person3);
+    persons.push(person4);
 
 // 5. tampilkan object persons.
     console.log("List Array Person : ");
