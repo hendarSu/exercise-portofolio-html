@@ -78,5 +78,6 @@ class Person {
 
 // 7. panggil fungsi Person.find(name) dan muncul kan object person berdasarkan nama yang di input.
     const personFind = Person.find("Hendar");
+
     console.log("Hasil Pencarian dengan inputan name : ");
     console.log(personFind);
