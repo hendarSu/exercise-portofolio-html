@@ -6,7 +6,7 @@ class Person {
         gender
     ) {
         this.name = name;
-        // 1. Tambahkan di constructor untuk set value denger
+        // 1. Tambahkan di constructor untuk set value genger
     }
 
     setTitle() {
