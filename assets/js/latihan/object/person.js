@@ -81,3 +81,20 @@ class Person {
 
     console.log("Hasil Pencarian dengan inputan name : ");
     console.log(personFind);
+
+    // Latihan OOP
+
+    class Student extends Person {
+        setClass(param) {
+            //1. argumant set nilai class
+            return this;
+        }
+        
+        // 4. tambahkan method setSekolah
+    
+    }
+    
+    // 2. Set class dengan bentuk builder pattern
+    const student = new Student();
+
+    // 3. Tampilkan student
