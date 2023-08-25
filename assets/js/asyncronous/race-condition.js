@@ -24,8 +24,8 @@ class Hewan {
     memakanWithProsessLamaCallback(param, callback) {
         setTimeout(() => {
             this.makanan = param;
-            callback(this.makanan);
-        }, 10);
+            callback();
+        }, 100); // Penundaan selama 1 detik
     }
 
     tampilkanMakanannya() {
@@ -34,24 +34,30 @@ class Hewan {
     }
 }
 
-function main() {
-    // console.log("Sycnronous");
-    // // sycronous
-    // const ayam = new Hewan("Unggas", "Ayam")
-    //     .memakan("Gabah")
-    //     .tampilkanMakanannya();
 
-    // // race condition
-    // console.log("Race Codition");
-    // const sapi = new Hewan("Mamalia", "Sapi");
-    // sapi.memakanWithProsessLama("Rumput");
-    // sapi.tampilkanMakanannya();
+function main() {
+    console.log("Sycnronous");
+    // sycronous
+    const ayam = new Hewan("Unggas", "Ayam")
+        .memakan("Gabah")
+        .tampilkanMakanannya();
+
+    // race condition
+    console.log("Race Codition");
+    const sapi = new Hewan("Mamalia", "Sapi");
+    sapi.memakanWithProsessLama("Rumput");
+    sapi.tampilkanMakanannya();
 
     // Fix race condition with Callback
     console.log("Fix Race Condition");
     const singa = new Hewan("Mamalia", "Singa");
-    singa.memakanWithProsessLamaCallback("Daging", singa.tampilkanMakanannya());
 
+    // singa.memakanWithProsessLamaCallback("Daging",
+    //     singa.tampilkanMakanannya()); contoh yg kurang tepat untuk set parameter callback
+    
+    singa.memakanWithProsessLamaCallback("Daging", () => {
+        singa.tampilkanMakanannya();
+    });
 }
 
 main();
