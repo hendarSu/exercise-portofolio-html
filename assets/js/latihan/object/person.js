@@ -23,14 +23,16 @@ class Person {
             console.error("Maaf gender yg di input hanya L atau P");
         }
 
+        this.#setTitle();
         return this;
     }
 
-    setTitle() {
+    #setTitle() {
         // 2. tambahkan argument untuk set title, jika gender L = "Tuan " apabila P = "Nyonya", maka nilai 
             // name nya menjadi contoh, 
             // name = Tuan Jhon
             (this.gender === "L") ? this.name = `Tuan ${this.name}` : this.name =`Nyonya ${this.name}`;
+            return this;
     }
 
     static find(name) {
@@ -43,28 +45,16 @@ class Person {
     // 1 person laki laki
     // panggil funsi setTittle dari object person 
     const person1 = new Person("Hendar", "L");
-    person1.setTitle();
-
-    //|key|value|
-    //|name|Hendar|
-    //|gender|L|
-
-    console.log(person1.name);
-    console.log(person1["name"]);
-
     // 1 person perempuan
     // panggil funsi setTittle dari object person 
     const person2 = new Person("Nurul", "P");
-    person2.setTitle();
-
     const person3 = new Person();
     person3.name = "Agung";
     person3.gender = "L";
-    person3.setTitle();
 
     // Builder Pattern
     const person4 = new Person();
-    person4.setName("Fajar").setGender("L").setTitle();
+    person4.setName("Fajar").setGender("L")
 
 // 4. setiap object person nya ditambahkan ke array object persons
     persons.push(person1);
@@ -83,18 +73,36 @@ class Person {
     console.log(personFind);
 
     // Latihan OOP
-
     class Student extends Person {
-        setClass(param) {
-            //1. argumant set nilai class
+        setKelas(param) {
+            //1. argumant set nilai kelas
+            this.kelas = param;
             return this;
         }
-        
-        // 4. tambahkan method setSekolah
-    
+
+        setSekolah(param) {
+            this.sekolah = param;
+            return this;
+        }
     }
     
     // 2. Set class dengan bentuk builder pattern
-    const student = new Student();
+    const student = 
+    new Student("Rudini")
+    .setGender("L")
+    .setKelas("Kelas 4")
+    .setSekolah("SDN 2 Bandung");
 
-    // 3. Tampilkan student
+    // Rekomendasi pembuatan object dengan pola builder pattern.
+    const student2 = 
+    new Student()
+    .setName("Deni")
+    .setGender("L")
+    .setKelas("Kelas 4")
+    .setSekolah("SDN 2 Bandung");
+
+    console.log("Tampil Student");
+    console.log(student);
+    console.log(student2);
+
+
